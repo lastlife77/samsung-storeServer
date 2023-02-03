@@ -51,7 +51,7 @@ const Phone = sequelize.define(
 );
 
 const Model = sequelize.define(
-    'Model',
+    'model',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
@@ -60,7 +60,7 @@ const Model = sequelize.define(
 );
 
 const Series =  sequelize.define(
-    'Series',
+    'series',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
@@ -127,7 +127,7 @@ const CPU = sequelize.define(
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         producer:{type: DataTypes.STRING},
         name:{type: DataTypes.STRING},
-        сores:{type:DataTypes.INTEGER},
+        cores:{type:DataTypes.INTEGER},
         frequency:{type:DataTypes.FLOAT},
     }
 );
@@ -170,38 +170,35 @@ BasketDevice.belongsTo(Basket);
 Series.hasMany(Model);
 Model.belongsTo(Series);
 
-Phone.hasOne(Model);
-Model.belongsTo(Phone);
+Model.hasMany(Phone);
+Phone.belongsTo(Model);
 
-Phone.hasOne(Color);
-Color.belongsTo(Phone);
+Color.hasMany(Phone);
+Phone.belongsTo(Color);
 
-Phone.hasOne(RAM);
-RAM.belongsTo(Phone);
+RAM.hasMany(Phone);
+Phone.belongsTo(RAM);
 
-Phone.hasOne(ROM);
-ROM.belongsTo(Phone);
+GeneralInfo.hasMany(Phone);
+Phone.belongsTo(GeneralInfo);
 
-Phone.hasOne(GeneralInfo);
-GeneralInfo.belongsTo(Phone);
+OperatingSystem.hasMany(Phone);
+Phone.belongsTo(OperatingSystem);
 
-Phone.hasOne(OperatingSystem);
-OperatingSystem.belongsTo(Phone);
+Display.hasMany(Phone);
+Phone.belongsTo(Display);
 
-Phone.hasOne(Display);
-Display.belongsTo(Phone);
+CPU.hasMany(Phone);
+Phone.belongsTo(CPU);
 
-Phone.hasOne(CPU);
-CPU.belongsTo(Phone);
+MainCamera.hasMany(Phone);
+Phone.belongsTo(MainCamera);
 
-Phone.hasOne(MainCamera);
-MainCamera.belongsTo(Phone);
+FrontCamera.hasMany(Phone);
+Phone.belongsTo(FrontCamera);
 
-Phone.hasOne(FrontCamera);
-FrontCamera.belongsTo(Phone);
-
-Phone.hasOne(Dimension);
-Dimension.belongsTo(Phone);
+Dimension.hasOne(FrontCamera);
+FrontCamera.belongsTo(Dimension);
 
 module.exports = {
     User, Basket, BasketDevice, Series, Model, Phone, Color, RAM, ROM, GeneralInfo, OperatingSystem, Display, CPU, MainCamera, FrontCamera, Dimension,
