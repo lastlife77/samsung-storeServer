@@ -3,7 +3,7 @@ const {DataTypes} = require('sequelize');
 const { model } = require("../db");
 
 const User = sequelize.define(
-    'user',
+    'User',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         email: {type: DataTypes.STRING, unique: true},
@@ -13,7 +13,7 @@ const User = sequelize.define(
 );
 
 const Basket = sequelize.define(
-    'basket',
+    'Basket',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         //user_id
@@ -21,7 +21,7 @@ const Basket = sequelize.define(
 );
 
 const BasketDevice = sequelize.define(
-    'basketDevice',
+    'BasketDevice',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         //phone_id
@@ -29,7 +29,7 @@ const BasketDevice = sequelize.define(
 );
 
 const Phone = sequelize.define(
-    'phone',
+    'Phone',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         //model_id
@@ -51,7 +51,7 @@ const Phone = sequelize.define(
 );
 
 const Model = sequelize.define(
-    'model',
+    'Model',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
@@ -60,7 +60,7 @@ const Model = sequelize.define(
 );
 
 const Series =  sequelize.define(
-    'series',
+    'Series',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
@@ -68,7 +68,7 @@ const Series =  sequelize.define(
 );
 
 const Color = sequelize.define(
-    'color',
+    'Color',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
@@ -92,7 +92,7 @@ const ROM = sequelize.define(
 );
 
 const GeneralInfo = sequelize.define(
-    'generalInfo',
+    'GeneralInfo',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         guarantee:{type: DataTypes.INTEGER},
@@ -110,14 +110,14 @@ const OperatingSystem = sequelize.define(
 );
 
 const Display = sequelize.define(
-    'display',
+    'Display',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         resolution:{type: DataTypes.STRING},
         diagonal:{type: DataTypes.FLOAT},
         technology:{type:DataTypes.STRING},
         frequency:{type:DataTypes.INTEGER},
-        frequency:{type:DataTypes.STRING},
+        glassType:{type:DataTypes.STRING},
     }
 );
 
@@ -133,7 +133,7 @@ const CPU = sequelize.define(
 );
 
 const MainCamera = sequelize.define(
-    'mainCamera',
+    'MainCamera',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         numberOfCameras:{type: DataTypes.INTEGER},
@@ -142,7 +142,7 @@ const MainCamera = sequelize.define(
 );
 
 const FrontCamera = sequelize.define(
-    'frontCamera',
+    'FrontCamera',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         numberOfCameras:{type: DataTypes.INTEGER},
@@ -151,7 +151,7 @@ const FrontCamera = sequelize.define(
 );
 
  const Dimension = sequelize.define(
-    'dimension',
+    'Dimension',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         weight:{type: DataTypes.FLOAT},

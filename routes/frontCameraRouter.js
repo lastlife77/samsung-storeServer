@@ -1,6 +1,6 @@
 const Router = require('express');
 const router = new Router();
-const cameraController = require('../controllers/cameraController.js');
+const cameraController = require('../controllers/frontCameraController.js');
 
 router.post('/', cameraController.create);
 router.get('/', cameraController.getAll);
