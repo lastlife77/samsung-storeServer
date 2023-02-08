@@ -17,6 +17,7 @@ const Basket = sequelize.define(
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         //user_id
+        //basket_id
     }
 );
 
@@ -54,7 +55,7 @@ const Model = sequelize.define(
     'Model',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-        name:{type: DataTypes.STRING, unique: true},
+        name:{type: DataTypes.STRING},
         //series_id
     }
 );
@@ -72,6 +73,7 @@ const Color = sequelize.define(
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         name:{type: DataTypes.STRING, unique: true},
+        rgb:{type: DataTypes.STRING}
     }
 );
 
@@ -105,7 +107,7 @@ const OperatingSystem = sequelize.define(
     'OperatingSystem',
     {
         id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-        name:{type: DataTypes.INTEGER},
+        name:{type: DataTypes.STRING, unique: true},
     }
 );
 
@@ -167,6 +169,9 @@ Basket.belongsTo(User);
 Basket.hasMany(BasketDevice);
 BasketDevice.belongsTo(Basket);
 
+Phone.hasMany(BasketDevice);
+BasketDevice.belongsTo(Phone);
+
 Series.hasMany(Model);
 Model.belongsTo(Series);
 
@@ -178,6 +183,9 @@ Phone.belongsTo(Color);
 
 RAM.hasMany(Phone);
 Phone.belongsTo(RAM);
+
+ROM.hasMany(Phone);
+Phone.belongsTo(ROM);
 
 GeneralInfo.hasMany(Phone);
 Phone.belongsTo(GeneralInfo);
@@ -196,9 +204,6 @@ Phone.belongsTo(MainCamera);
 
 FrontCamera.hasMany(Phone);
 Phone.belongsTo(FrontCamera);
-
-Dimension.hasOne(FrontCamera);
-FrontCamera.belongsTo(Dimension);
 
 module.exports = {
     User, Basket, BasketDevice, Series, Model, Phone, Color, RAM, ROM, GeneralInfo, OperatingSystem, Display, CPU, MainCamera, FrontCamera, Dimension,

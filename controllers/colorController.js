@@ -2,8 +2,8 @@ const {Color} = require('../models/models.js');
 const ApiError = require('../error/ApiError');
 class ColorController {
     async create(req, res){
-        const {name} = req.body;
-        const color = await Color.create({name});
+        const {name, rgb} = req.body;
+        const color = await Color.create({name, rgb});
         return res.json(color);
     }
 

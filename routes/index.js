@@ -11,9 +11,9 @@ const frontCameraRouter = require('./frontCameraRouter');
 const generalInfoRouter = require('./generalInfoRouter');
 const mainCameraRouter = require('./mainCameraRouter');
 const modelRouter = require('./modelRouter');
-/*const operatingSystemRouter = require('./operatingSystemRouter');
+const operatingSystemRouter = require('./operatingSystemRouter');
 const ramRouter = require('./ramRouter');
-const romRouter = require('./romRouter');*/
+const romRouter = require('./romRouter');
 
 
 
@@ -29,8 +29,8 @@ router.use('/frontCamera', frontCameraRouter);
 router.use('/generalInfo', generalInfoRouter);
 router.use('/mainCamera', mainCameraRouter);
 router.use('/model', modelRouter);
-/*router.use('/operatingSystem', operatingSystemRouter);
+router.use('/operatingSystem', operatingSystemRouter);
 router.use('/ram', ramRouter);
-router.use('/rom', romRouter);*/
+router.use('/rom', romRouter);
 
 module.exports = router;
